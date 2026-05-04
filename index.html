@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NEURO-ONCOLOGY PROTOCOL GENERATOR</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="auth-screen" id="authScreen" aria-labelledby="authTitle">
+        <div class="auth-panel">
+          <p class="kicker">Clinical protocols dashboard</p>
+          <h1 id="authTitle">NEURO-ONCOLOGY PROTOCOL GENERATOR</h1>
+          <form class="password-form" id="passwordForm">
+            <label for="passwordInput">Password</label>
+            <div class="password-row">
+              <input id="passwordInput" type="password" autocomplete="current-password" required autofocus>
+              <button type="submit">Enter</button>
+            </div>
+            <p class="error-message" id="errorMessage" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard is-locked" id="dashboard" aria-labelledby="dashboardTitle">
+        <header class="dashboard-header">
+          <div>
+            <p class="kicker">PGH neuro-oncology tools</p>
+            <h1 id="dashboardTitle">NEURO-ONCOLOGY PROTOCOL GENERATOR</h1>
+          </div>
+          <button class="lock-button" id="lockButton" type="button">Lock</button>
+        </header>
+
+        <div class="workspace">
+          <nav class="protocol-panel" aria-label="Protocol links">
+            <a class="protocol-button is-active" href="https://elizermmontemayor-prog.github.io/PGHstuppdoctor/" target="_blank" rel="noopener" data-guide="stupp">
+              <span>Stupp Protocol</span>
+              <small>Open protocol and show QR guide</small>
+            </a>
+            <a class="protocol-button" href="https://elizermmontemayor-prog.github.io/Stupp12doctor/" target="_blank" rel="noopener" data-guide="stupp12">
+              <span>Stupp12 Protocol</span>
+              <small>Open protocol and show QR guide</small>
+            </a>
+            <a class="protocol-button" href="https://elizermmontemayor-prog.github.io/pghpcvdoctor/" target="_blank" rel="noopener" data-guide="pcv">
+              <span>PCV Protocol</span>
+              <small>Open protocol and show QR guide</small>
+            </a>
+            <a class="protocol-button" href="https://elizermmontemayor-prog.github.io/PGHmetronomictmzdoctor/" target="_blank" rel="noopener" data-guide="metronomic">
+              <span>Metronomic TMZ Protocol</span>
+              <small>Open protocol and show QR guide</small>
+            </a>
+          </nav>
+
+          <section class="guide-panel" aria-live="polite" aria-labelledby="guideTitle">
+            <div class="guide-copy">
+              <p class="kicker">Selected QR guide</p>
+              <h2 id="guideTitle">Stupp Protocol</h2>
+              <p id="guideDescription">Allow the patient to scan the QR code for a personalized guide to chemotherapy.</p>
+            </div>
+            <div class="qr-frame">
+              <img id="guideImage" src="assets/stupp-guide.png" alt="QR code guide for Stupp Protocol">
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
