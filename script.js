@@ -32,6 +32,7 @@ const lockButton = document.querySelector("#lockButton");
 const guideTitle = document.querySelector("#guideTitle");
 const guideDescription = document.querySelector("#guideDescription");
 const guideImage = document.querySelector("#guideImage");
+const qrFrame = document.querySelector(".qr-frame");
 const protocolButtons = document.querySelectorAll(".protocol-button");
 
 function unlockDashboard() {
@@ -51,6 +52,11 @@ function selectGuide(key) {
   const guide = guides[key];
 
   if (!guide) {
+    guideTitle.textContent = "";
+    guideDescription.textContent = "";
+    guideImage.removeAttribute("src");
+    guideImage.alt = "";
+    qrFrame.classList.add("is-empty");
     return;
   }
 
@@ -58,6 +64,7 @@ function selectGuide(key) {
   guideDescription.textContent = "Allow the patient to scan the QR code for a personalized guide to chemotherapy.";
   guideImage.src = guide.image;
   guideImage.alt = guide.alt;
+  qrFrame.classList.remove("is-empty");
 
   protocolButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.guide === key);
@@ -80,6 +87,14 @@ lockButton.addEventListener("click", lockDashboard);
 
 protocolButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    if (!button.dataset.guide) {
+      protocolButtons.forEach((item) => {
+        item.classList.toggle("is-active", item === button);
+      });
+      selectGuide(button.dataset.guide);
+      return;
+    }
+
     selectGuide(button.dataset.guide);
   });
 });
